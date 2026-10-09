@@ -4,7 +4,8 @@ import statistics
 from matplotlib import pyplot as plt
 from sklearn.cluster import KMeans
 
-df=pd.read_csv("data.csv")
+df=pd.read_csv("data.csv",na_values=['null'])
+df=df.fillna(0)
 print(df)
 
 x=df[['Year','Population_Growth','GDP_Growth','Sales_Growth','Technology_Growth']]
@@ -20,5 +21,3 @@ plt.xlabel("year")
 plt.ylabel("Population_growth")
 plt.title("kmeans clusteing of growth dataset")
 plt.show()
-
-
